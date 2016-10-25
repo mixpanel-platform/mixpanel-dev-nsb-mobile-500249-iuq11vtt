@@ -29,7 +29,7 @@
           from_date: from_date,
           to_date: new Date().toISOString().split('T')[0]
         })
-        // .filter(event => event.properties.mp_lib == library)
+        .filter(event => event.name.indexOf('#') > -1)
         .filter(event => !default_events[event.name])
         .groupBy(['properties.mp_lib'], function(accums, events){
           var res = {};
@@ -70,6 +70,7 @@
     <script>
     
   MP.api.jql($('.jql').html()).done(function(data){
+      debugger
       $('#jstree').jstree({
         "core" : {
           "animation" : 0,
@@ -101,6 +102,7 @@
       e.preventDefault();
       $("#jstree").jstree(true).search($("#q").val());
     });
+      // Run queries and display results here
     </script>
   </body>
 </html>
