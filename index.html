@@ -66,22 +66,28 @@
     </script>  
     <script>
     
-  MP.api.jql($('.jql').html()).done(function(data){
-    debugger
-    $('#jstree_demo').jstree({
-      "core" : {
-        "animation" : 0,
-        "check_callback" : true,
-        "themes" : { "stripes" : true },
-        'data' : data
-      },
-      "plugins" : [
-        "contextmenu", "dnd", "search",
-        "state", "types", "wholerow"
-      ]
-    });
-
-  })
+  // MP.api.jql($('.jql').html()).done(function(data){
+    $(function () { 
+      debugger
+      $('#jstree_demo').jstree({
+        "core" : {
+          "animation" : 0,
+          "check_callback" : true,
+          "themes" : { "stripes" : true },
+          'data' : {
+            url: MP.api.jql($('.jql').html()),
+            data: function(node){
+              return { "id": node.id }
+            }
+  
+          }
+        },
+        "plugins" : [
+          "contextmenu", "dnd", "search",
+          "state", "types", "wholerow"
+        ]
+      });
+    })
       // Run queries and display results here
     </script>
   </body>
