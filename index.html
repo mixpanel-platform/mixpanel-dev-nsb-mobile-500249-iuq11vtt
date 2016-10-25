@@ -66,20 +66,14 @@
     </script>  
     <script>
     
-  // MP.api.jql($('.jql').html()).done(function(data){
-    $(function () { 
+  MP.api.jql($('.jql').html()).done(function(data){
       debugger
       $('#jstree').jstree({
         "core" : {
           "animation" : 0,
           "check_callback" : true,
           "themes" : { "stripes" : true },
-          'data' : {
-            url: MP.api.jql($('.jql').html()),
-            data: function(node){
-              return { "id": node.id }
-            }
-  
+          'data': data
           }
         },
         "plugins" : [
