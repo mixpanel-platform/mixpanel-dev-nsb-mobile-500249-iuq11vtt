@@ -59,7 +59,7 @@
           _.each(item.value, (props, event) => {
             var tmp = {text: event, children: [], type: 'event'}
             _.each(props, (types, prop) => {
-              tmp.children.push({text: prop, children: _.map(types, type => ({text: type, type: 'property'}))})
+              tmp.children.push({text: prop, children: _.map(types, type => ({text: type, 'type': 'property'}))})
             })
             res.children.push(tmp)
           })
