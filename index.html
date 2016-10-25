@@ -56,11 +56,12 @@
           return res;
         })
         .map(item => {
-          var res = {text: item.key[0], children: []}
+          var type = item.key[0] == 'android' || item.key[0] == 'iphone') ? 'mobile' : 'web'
+          var res = {text: item.key[0], children: [], type: type}
           _.each(item.value, (props, event) => {
-            var tmp = {text: event, children: []}
+            var tmp = {text: event, children: [], type: 'event'}
             _.each(props, (types, prop) => {
-              tmp.children.push({text: prop, children: _.map(types, type => ({text: type}))})
+              tmp.children.push({text: prop, children: _.map(types, type => ({text: type, type: 'property'}))})
             })
             res.children.push(tmp)
           })
@@ -78,6 +79,20 @@
           "check_callback" : true,
           "themes" : { "stripes" : true },
           'data': data
+        },
+        "types" : {
+          "mobile" : {
+            "icon" : "glyphicon glyphicon-iphone"
+          },
+          "web" : {
+            "icon" : "glyphicon glyphicon-laptop"
+          },
+          "event" : {
+            "icon" : "glyphicon glyphicons-flash"
+          },
+          "property" : {
+            "icon" : "glyphicon glyphicon-show-thumbnails-with-lines"
+          },
         },
         "plugins" : ["search", "types", "wholerow"]
       });
