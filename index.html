@@ -70,7 +70,6 @@
     <script>
     
   MP.api.jql($('.jql').html()).done(function(data){
-      debugger
       $('#jstree').jstree({
         "core" : {
           "animation" : 0,
@@ -102,7 +101,6 @@
       e.preventDefault();
       $("#jstree").jstree(true).search($("#q").val());
     });
-      // Run queries and display results here
     </script>
   </body>
 </html>
