@@ -13,6 +13,10 @@
     
   </head>
   <body class="mixpanel-platform-body">
+    <form id="s">
+      <input type="search" id="q" />
+      <button type="submit">Search</button>
+    </form>
     <div id='jstree'></div>
     <script class="jql">
       var number_of_days = 5;
@@ -75,12 +79,13 @@
           "themes" : { "stripes" : true },
           'data': data
         },
-        "plugins" : [
-          "contextmenu", "dnd", "search",
-          "state", "types", "wholerow"
-        ]
+        "plugins" : ["search", "types", "wholerow"]
       });
     })
+    $("#s").submit(function(e) {
+      e.preventDefault();
+      $("#jstree").jstree(true).search($("#q").val());
+    });
       // Run queries and display results here
     </script>
   </body>
