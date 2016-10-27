@@ -57,7 +57,7 @@
           var type = (item.key[0] == 'android' || item.key[0] == 'iphone') ? 'mobile' : 'web'
           var res = {text: item.key[0], children: [], type: type}
           _.each(item.value, (props, event) => {
-            var tmp = {text: event, children: [], type: 'event'}
+            var tmp = {text: event, children: [], type: 'event', feature:event.split('#')[1]}
             _.each(props, (types, prop) => {
               tmp.children.push({text: prop, type:'property', children: _.map(types, type => ({text: type, type: 'types'}))})
             })
