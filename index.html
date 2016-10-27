@@ -82,6 +82,7 @@
           "show_only_matches" : "True"
         },
         "sort": function(a,b){
+          debugger
           var A = this.get_node(a)
           var B = this.get_node(b)
           var res = A.text > B.text ? -1 : 1
