@@ -78,6 +78,13 @@
           "themes" : { "stripes" : true },
           'data': data
         },
+        "search" : {
+          "show_only_matches" : "True"
+        },
+        "sort": function(a,b){
+          debugger
+          return 1
+        },
         "types" : {
           "mobile" : {
             "icon" : "fa fa-mobile"
@@ -95,7 +102,7 @@
             "icon" : "fa fa-terminal"
           }
         },
-        "plugins" : ["search", "types", "wholerow"]
+        "plugins" : ["search", "types", "wholerow", "sort"]
       });
     })
     $("#s").submit(function(e) {
