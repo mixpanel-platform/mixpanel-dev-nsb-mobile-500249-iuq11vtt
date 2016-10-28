@@ -86,9 +86,11 @@
           var A = this.get_node(a)
           var B = this.get_node(b)
           // this doesnt grab the feature
-          var res = A.text > B.text ? -1 : 1
+          var res = A.text > B.text ? 1 : -1
+          var aFeature = A.text.split('#')[1]
+          var bFeature = B.text.split('#')[1]
           if (A.feature && B.feature){
-            res = A.feature > B.feature ? -1 : 1
+            res = aFeature > bFeature ? 1 : -1
           }
           return res
         },
