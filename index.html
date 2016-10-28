@@ -89,7 +89,7 @@
           var res = A.text.toLowerCase() > B.text.toLowerCase() ? 1 : -1
           var aFeature = A.text.split('#')[1]
           var bFeature = B.text.split('#')[1]
-          if (A.feature && B.feature){
+          if (aFeature && bFeature){
             res = aFeature > bFeature ? 1 : -1
           }
           return res
