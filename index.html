@@ -70,7 +70,6 @@
     <script>
     
   MP.api.jql($('.jql').html()).done(function(data){
-      debugger
       $('#jstree').jstree({
         "core" : {
           "animation" : 0,
@@ -82,7 +81,6 @@
           "show_only_matches" : "True"
         },
         "sort": function(a,b){
-          debugger
           var A = this.get_node(a)
           var B = this.get_node(b)
           // this doesnt grab the feature
